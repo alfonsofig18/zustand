@@ -86,10 +86,15 @@ export const BearsDisplay = () => {
 
   const bears = useBearStore(useShallow((state) => state.bears));
   const doNothing = useBearStore((state) => state.doNothing);
+  const addBears = useBearStore((state) => state.addBears);
+  const clearBears = useBearStore((state) => state.clearBears);
+
   return (
     <WhiteCard>
       <h1>Osos</h1>
-      <button onClick={() => doNothing()}>Do nothing</button>
+      <button onClick={() => doNothing()}>No hacer nada</button>
+      <button className='mt-3' onClick={clearBears}>Eliminar Osos</button>
+      <button className='mt-3' onClick={addBears}>Agregar Oso</button>
       <pre>
         {JSON.stringify(bears, null, 2)}
       </pre>
